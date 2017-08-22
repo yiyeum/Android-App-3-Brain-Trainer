@@ -1,5 +1,6 @@
 package com.kateyeeum.braintrainer;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -14,24 +15,48 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    Button goButton;
     RelativeLayout gameLayout;
     TextView sumTextView;
+    TextView timerTextView;
+    TextView scoreTextView;
+    TextView resultTextView;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOfCorrectAnswer;
+    int score = 0;
+    int numberOfQuestions = 0;
     final int numberOfButtons = 4;
+    Button goButton;
     Button button0;
     Button button1;
     Button button2;
     Button button3;
+    Button playButton;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        goButton = (Button) findViewById(R.id.goButton);
+        gameLayout = (RelativeLayout) findViewById(R.id.gameLayout);
+        sumTextView = (TextView) findViewById(R.id.sumTextView);
+        button0 = (Button) findViewById(R.id.button0);
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        playButton = (Button) findViewById(R.id.playButton);
+        timerTextView = (TextView) findViewById(R.id.timerTextView);
+        scoreTextView = (TextView) findViewById(R.id.scoreTextView);
+        resultTextView = (TextView) findViewById(R.id.resultTextView);
+
+    }
 
     public void start(View view){
         goButton.setVisibility(View.INVISIBLE);
         gameLayout.setVisibility(View.VISIBLE);
     }
 
-    public void generateQuestion(View view){
+    public void generateQuestion(){
 
         // two random integers
 
@@ -46,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         // locate a+b on the button
 
         locationOfCorrectAnswer = rand.nextInt(4);
+
+        answers.clear();
 
         int incorrectAnswer;
 
@@ -84,18 +111,36 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void playGame(View view){
 
-        goButton = (Button) findViewById(R.id.goButton);
-        gameLayout = (RelativeLayout) findViewById(R.id.gameLayout);
-        sumTextView = (TextView) findViewById(R.id.sumTextView);
-        button0 = (Button) findViewById(R.id.button0);
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
+        // Reset all the text view + run generateQuestion()
+
+        timerTextView.setText("0s");
+        scoreTextView.setText("0/0");
+        resultTextView.setText("");
+        playButton.setVisibility(View.INVISIBLE);
+        generateQuestion();
+
+        new CountDownTimer(30000,1000){
+
+            @Override
+            public void onTick(long l) {
+
+                timerTextView.setText(Long.toString(l / 1000) + "s");
+
+            }
+
+            @Override
+            public void onFinish() {
+
+                timerTextView.setText("0s");
+                playButton.setVisibility(View.VISIBLE);
+                resultTextView.setText("Your score is " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+
+            }
+        }.start();
 
     }
+
+
 }

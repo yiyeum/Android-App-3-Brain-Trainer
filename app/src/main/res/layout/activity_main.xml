@@ -89,25 +89,43 @@
             android:textSize="30sp"
             tools:ignore="HardcodedText" />
 
-        <GridLayout
+        <Button
+            android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="57dp"
+            android:layout_alignLeft="@+id/sumTextView"
+            android:layout_alignStart="@+id/sumTextView"
+            android:layout_below="@+id/resultTextView"
+            android:layout_marginTop="15dp"
+            android:onClick="playGame"
+            android:text="Play!"
+            android:textColor="#444444"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/scoreTextView"
             android:layout_centerHorizontal="true"
-            android:id="@+id/gridLayout">
+            android:layout_marginTop="57dp">
 
             <Button
                 android:id="@+id/button0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_row="0"
+                android:layout_rowWeight="1"
                 android:background="#ffd0d0"
-                android:padding="40dp"
-                android:text="20"
+                android:onClick="chooseAnswer"
+                android:tag="0"
+                android:text="1"
                 android:textColor="#ffffff"
-                android:textSize="30sp"
+                android:textSize="80sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText,UnusedAttribute" />
 
@@ -116,42 +134,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_row="0"
+                android:layout_rowWeight="1"
                 android:background="#d4fd69"
-                android:padding="40dp"
-                android:text="20"
+                android:onClick="chooseAnswer"
+                android:tag="1"
+                android:text="1"
                 android:textColor="#ffffff"
-                android:textSize="30sp"
+                android:textSize="80sp"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_row="1"
+                android:layout_rowWeight="1"
                 android:background="#aadefa"
-                android:padding="40dp"
-                android:text="20"
+                android:onClick="chooseAnswer"
+                android:tag="2"
+                android:text="1"
                 android:textColor="#ffffff"
-                android:textSize="30sp"
+                android:textSize="80sp"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,UnusedAttribute" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_row="1"
+                android:layout_rowWeight="1"
                 android:background="#f4adff"
-                android:padding="40dp"
-                android:text="20"
+                android:onClick="chooseAnswer"
+                android:tag="3"
+                android:text="1"
                 android:textColor="#ffffff"
-                android:textSize="30sp"
+                android:textSize="80sp"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                tools:targetApi="lollipop" />
         </GridLayout>
     </RelativeLayout>
 </RelativeLayout>
