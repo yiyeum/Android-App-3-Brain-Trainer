@@ -114,6 +114,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void playGame(View view){
 
+        button0.setEnabled(true);
+        button1.setEnabled(true);
+        button2.setEnabled(true);
+        button3.setEnabled(true);
+
         // Reset all the text view + run generateQuestion()
 
         timerTextView.setText("0s");
@@ -122,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         playButton.setVisibility(View.INVISIBLE);
         generateQuestion();
 
-        new CountDownTimer(30000,1000){
+        new CountDownTimer(10000,1000){
 
             @Override
             public void onTick(long l) {
