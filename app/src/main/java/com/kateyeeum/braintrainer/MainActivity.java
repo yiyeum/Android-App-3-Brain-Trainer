@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
 
         timerTextView.setText("0s");
         scoreTextView.setText("0/0");
+        score = 0;
+        numberOfQuestions = 0;
         resultTextView.setText("");
         playButton.setVisibility(View.INVISIBLE);
         generateQuestion();
