@@ -137,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
                 timerTextView.setText("0s");
                 playButton.setVisibility(View.VISIBLE);
                 resultTextView.setText("Your score is " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+                button0.setEnabled(false);
+                button1.setEnabled(false);
+                button2.setEnabled(false);
+                button3.setEnabled(false);
 
             }
         }.start();
