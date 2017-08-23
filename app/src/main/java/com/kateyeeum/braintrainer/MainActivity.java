@@ -1,11 +1,12 @@
 package com.kateyeeum.braintrainer;
 
+import android.media.Image;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     TextView timerTextView;
     TextView scoreTextView;
     TextView resultTextView;
+    TextView welcomeTextView;
+    TextView welcome2TextView;
+    ImageView brainImage;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     ArrayList<String> messages = new ArrayList<String>();
     int locationOfCorrectAnswer;
@@ -51,11 +55,17 @@ public class MainActivity extends AppCompatActivity {
         timerTextView = (TextView) findViewById(R.id.timerTextView);
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
         resultTextView = (TextView) findViewById(R.id.resultTextView);
+        welcomeTextView = (TextView) findViewById(R.id.welcomeTextView);
+        welcome2TextView = (TextView) findViewById(R.id.welcome2TextView);
+        brainImage = (ImageView) findViewById(R.id.brainImageView);
 
     }
 
     public void start(View view){
         goButton.setVisibility(View.INVISIBLE);
+        welcomeTextView.setVisibility(View.INVISIBLE);
+        welcome2TextView.setVisibility(View.INVISIBLE);
+        brainImage.setVisibility(View.INVISIBLE);
         gameLayout.setVisibility(View.VISIBLE);
         playGame(playButton);
     }
@@ -131,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         playButton.setVisibility(View.INVISIBLE);
         generateQuestion();
 
-        new CountDownTimer(10000,1000){
+        new CountDownTimer(30000,1000){
 
             @Override
             public void onTick(long l) {
