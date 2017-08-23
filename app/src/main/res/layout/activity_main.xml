@@ -19,36 +19,40 @@
         android:paddingRight="50dp"
         android:paddingTop="20dp"
         android:text="Go!"
-        android:textColor="#aaaaaa"
+        android:textColor="#f14141"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:visibility="invisible"
+        android:visibility="visible"
         tools:ignore="HardcodedText" />
 
     <RelativeLayout
         android:id="@+id/gameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible">
 
         <TextView
             android:id="@+id/sumTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/timerTextView"
+            android:layout_centerHorizontal="true"
             android:text="11+1"
             android:textColor="#f68080"
             android:textSize="37sp"
             android:textStyle="bold"
-            android:layout_alignTop="@+id/timerTextView"
-            android:layout_centerHorizontal="true"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/sumTextView"
             android:layout_marginEnd="37dp"
             android:layout_marginRight="37dp"
             android:background="#ffc59c"
@@ -56,9 +60,6 @@
             android:text="0/0"
             android:textColor="#ffffff"
             android:textSize="27sp"
-            android:layout_alignTop="@+id/sumTextView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             tools:ignore="HardcodedText" />
 
         <TextView

@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     public void start(View view){
         goButton.setVisibility(View.INVISIBLE);
         gameLayout.setVisibility(View.VISIBLE);
+        playGame(playButton);
     }
 
     public void generateQuestion(){
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTick(long l) {
 
-                timerTextView.setText(Long.toString(l / 1000) + "s");
+                timerTextView.setText(String.valueOf(l / 1000) + "s");
 
             }
 
@@ -139,6 +140,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }.start();
+
+    }
+
+    public void chooseAnswer(View view){
+
+        if(view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))){
+
+            resultTextView.setText("Correct!");
+            score++;
+
+        } // if
+
+        else{
+
+            resultTextView.setText("Wrong!");
+
+        } // else
+
+        numberOfQuestions++;
+        scoreTextView.setText(score + "/" + numberOfQuestions);
+        generateQuestion();
 
     }
 
