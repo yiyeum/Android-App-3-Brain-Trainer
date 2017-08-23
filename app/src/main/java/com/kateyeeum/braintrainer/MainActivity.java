@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView scoreTextView;
     TextView resultTextView;
     ArrayList<Integer> answers = new ArrayList<Integer>();
+    ArrayList<String> messages = new ArrayList<String>();
     int locationOfCorrectAnswer;
     int score = 0;
     int numberOfQuestions = 0;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     Button button3;
     Button playButton;
+    Random rand = new Random();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
         // two random integers
 
-        Random rand = new Random();
         int a = rand.nextInt(21);
         int b = rand.nextInt(21);
 
@@ -156,9 +158,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void chooseAnswer(View view){
 
+        messages.add("Awesome!");
+        messages.add("Great!");
+        messages.add("Correct!");
+        messages.add("Perfect!");
+
         if(view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))){
 
-            resultTextView.setText("Correct!");
+            int i = rand.nextInt(5);
+            resultTextView.setText(messages.get(i));
             score++;
 
         } // if
