@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 button1.setEnabled(false);
                 button2.setEnabled(false);
                 button3.setEnabled(false);
+                playButton.setText("Try Again!");
 
             }
         }.start();
