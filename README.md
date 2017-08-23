@@ -19,4 +19,5 @@
 #### Comment : 
 #### This app will be updated whenever I find something to improve.
 
+Brain Image by FreePik
 Copyright © 2017 Kate Yeeum Lee
